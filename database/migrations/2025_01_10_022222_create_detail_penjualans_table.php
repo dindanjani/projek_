@@ -20,6 +20,11 @@ return new class extends Migration
             $table->integer('JumlahProduk');
             $table->decimal('SubTotal',10,2);
             $table->timestamps();
+
+
+            $table->foreign('PenjualanId')->references('id')->on('penjualans')->onDelete('cascade');
+            $table->foreign('ProdukId')->references('id')->on('produks')->onDelete('cascade');
+
         });
     }
 
